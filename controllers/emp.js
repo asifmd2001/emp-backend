@@ -1,10 +1,12 @@
+im
+
 import empDetail from '../models/empDetail.js';
-import empDetails from '../models/empDetail.js';
+// import empDetails from '../models/empDetail.js';
 
 export const getEmp = async (req, res) => {
   // res.send('check get');
   try { 
-    const empDetails = await empDetails.find();
+    const empDetails = await empDetail.find();
 
     res.status(200).json(empDetails);
   } catch (error) {
