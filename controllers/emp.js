@@ -1,4 +1,4 @@
-im
+
 
 import empDetail from '../models/empDetail.js';
 // import empDetails from '../models/empDetail.js';
