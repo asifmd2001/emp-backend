@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
   cors({
+    
     allowedHeaders: ['Content-Type'], // headers that React is sending to the API
     exposedHeaders: ['Content-Type'], // headers that you are sending back to React
     origin: '*',
