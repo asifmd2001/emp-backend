@@ -1,4 +1,4 @@
-// run `node index.js` in the terminal
+//run `node index.js` in the terminal
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';

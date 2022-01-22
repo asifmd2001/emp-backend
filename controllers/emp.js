@@ -25,7 +25,7 @@ export const createEmp = async (req, res) => {
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   );
-  res.setHeader('Access-Control-Allow-Origin', 'Content-Type');
+  // res.setHeader('Access-Control-Allow-Origin', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   const emp = req.body;
   const newEmp = new empDetail(emp);
