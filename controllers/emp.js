@@ -27,14 +27,25 @@ export const createEmp = async (req, res) => {
   );
   // res.setHeader('Access-Control-Allow-Origin', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
+
   const emp = req.body;
-  const newEmp = new empDetail(emp);
 
-  try {
-    await newEmp.save();
+  var e = emp.email;
+  empDetail.findOne({ email : e }, async function(err, empdetail) {
+    if (err) console.log(err);
+    if (empdetail) {
+      console.log("This has already been saved");
+      res.status(409).json("already Saved");
+    } else {
+      const newEmp = new empDetail(emp);
 
-    res.status(201).json(newEmp);
-  } catch (error) {
-    res.status(409).json(error);
-  }
+      try {
+        await newEmp.save();
+
+        res.status(201).json(newEmp);
+      } catch (error) {
+        res.status(409).json(error);
+      }
+    }
+  })
 };

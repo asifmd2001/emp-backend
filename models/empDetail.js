@@ -8,7 +8,7 @@ const empSchema = mongoose.Schema({
 //     type: Number,
 //     default: 1814101
 //  },
-  email : String,
+  email : {type:String , unique : true},
   dob : Date,  
   gender : String
 })
