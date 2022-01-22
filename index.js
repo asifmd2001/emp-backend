@@ -9,12 +9,8 @@ import routes from './routes/emp.js';
 
 const app = express();
 
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(
   cors({
-    
     allowedHeaders: ['Content-Type'], // headers that React is sending to the API
     exposedHeaders: ['Content-Type'], // headers that you are sending back to React
     origin: '*',
@@ -22,6 +18,9 @@ app.use(
     preflightContinue: false,
   })
 );
+
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/emp', routes);
 const CONNECTION_URL =
