@@ -56,3 +56,11 @@ export const updateEmp =async (req,res)=>{
   res.json(updatedEmp)
 }
 
+export const deleteEmp = async(req,res)=>{
+  const{id:_id} = req.params;
+  if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("NO EMP WITH ID");
+  
+  await empDetail.findByIdAndRemove(_id);
+
+  res.json("deleted");
+}

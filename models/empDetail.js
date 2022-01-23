@@ -9,7 +9,7 @@ const empSchema = mongoose.Schema({
 //     default: 1814101
 //  },
   email : {type:String , unique : true},
-  dob : Date,  
+  dob : String,  
   gender : String
 })
 
