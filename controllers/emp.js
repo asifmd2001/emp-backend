@@ -4,7 +4,13 @@ import mongoose from "mongoose";
 
 export const getEmp = async (req, res) => {
   // res.send('check get');
-  
+   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   try {
     const empDetails = await empDetail.find();
     //console.log(empDetails);
@@ -65,8 +71,10 @@ export const deleteEmp = async(req,res)=>{
   );
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   const{id:_id} = req.params;
-  if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("NO EMP WITH ID");
-  
+  if(!mongoose.Types.ObjectId.isValid(_id)) {
+    console.log("hhhhh");
+    return res.status(404).send("NO EMP WITH ID");
+  }
   await empDetail.findByIdAndRemove(_id);
   console.log("delete");
 
